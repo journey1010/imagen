@@ -14,7 +14,7 @@ class Image extends Template
             'colorGerencia' => 'nullable|string',
             'logoGerencia' => ['nullable', 'string'],
             'nombreObraPrograma' => 'nullable|string|max:1000',
-            'imagen' => ['required', 'nullable|mimes:png,jpg,jpeg'],
+            'imagen' => ['required', 'mimes:png,jpg,jpeg,gif'],
             'montoInversion' => 'required|string|max:1000',
             'descripcion' => 'required|string|max:2000',
             'beneficiarios' => 'required|string',
