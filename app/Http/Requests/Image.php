@@ -12,7 +12,7 @@ class Image extends Template
             'nombreGerencia' => 'required|string',
             'gerenciaReferencia' => 'nullable|string',
             'colorGerencia' => 'nullable|string',
-            'logoGerencia' => ['nullable', 'file', 'image'],
+            'logoGerencia' => ['nullable', 'string'],
             'nombreObraPrograma' => 'nullable|string|max:1000',
             'imagen' => ['required', 'file', 'image'],
             'montoInversion' => 'required|string|max:1000',

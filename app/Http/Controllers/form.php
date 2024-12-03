@@ -16,7 +16,7 @@ class form extends Controller
             $form->nombreGerencia = $request->nombreGerencia;
             $form->gerenciaReferencia = $request->gerenciaReferencia;
             $form->colorGerencia = $request->colorGerencia;
-            $form->logoGerencia = $request->file('logoGerencia')->store('public/fotos');
+            $form->logoGerencia = $request->logoGerencia;
             $form->nombreObraPrograma = $request->nombreObraPrograma;
             $form->imagen = $request->file('imagen')->store('public/fotos');
             $form->montoInversion = $request->montoInversion;
@@ -55,6 +55,7 @@ class form extends Controller
     public function storeFiles()
     {
         try{
+            
             return response()->json([]);
         }catch(Exception $e){
             return response()->json(['message' => 'ocurrio un error temporal'], 500);
