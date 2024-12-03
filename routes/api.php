@@ -15,5 +15,6 @@ use App\Http\Controllers\AuthController;
 */
 
 Route::post('login', [AuthController::class, 'login']);
-Route::post('/form', [form::class, 'store'])->middleware('auth:api');
+Route::post('/form', [form::class, 'store']);
 Route::get('/oficinas', [form::class, 'oficinas'])->middleware('auth:api');
+Route::post('/store-files', [form::class, 'storeFiles']);

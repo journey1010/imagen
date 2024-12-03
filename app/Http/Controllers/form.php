@@ -28,7 +28,7 @@ class form extends Controller
             $form->save();
             return response()->json(['message' => 'Guardado']);
         }catch(Exception $e){
-            return response()->json(['message' => 'ocurrio un error temporal', $e->getMessage()], 500);
+            return response()->json(['message' => 'ocurrio un error temporal'], 500);
         }
     }
 
@@ -49,6 +49,15 @@ class form extends Controller
             return response()->json($items, 200);
         }catch(Exception $e){
             return response()->json (['messaga' => 'Problemas temporales'], 500);
+        }
+    }
+
+    public function storeFiles()
+    {
+        try{
+            return response()->json([]);
+        }catch(Exception $e){
+            return response()->json(['message' => 'ocurrio un error temporal'], 500);
         }
     }
 }
