@@ -66,7 +66,7 @@ class GenerateTokens
                 throw new JWTException('Los claims esperados no coinciden con los proporcionados');
             }
             
-            $user = User::getUserIfActive($sub);
+            $user = User::find($sub);
    
             if (!$user) {
                 throw new JWTException('El usuario está temporalmente restringido');

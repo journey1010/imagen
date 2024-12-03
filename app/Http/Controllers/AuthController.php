@@ -37,10 +37,10 @@ class AuthController extends Controller
     public function refreshTokens(): JsonResponse
     {
         try {
-            list($updateToken, $operationToken, $user) = GenerateTokens::refreshTokens();
+            list($updateToken, $operationToken) = GenerateTokens::refreshTokens();
             return response()->json(['tokenUpdate' => $updateToken,'tokenOperation' => $operationToken], 200);
         } catch (\Exception $e) {
-            return response()->json(['message' => 'Ha ocurrido un error inesperado en su solicitud'], 500);
+            return response()->json(['message' => 'Ha ocurrido un error inesperado en su solicitud', $e->getMessage()], 500);
         }
     }
 }

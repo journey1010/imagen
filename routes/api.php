@@ -15,7 +15,8 @@ use App\Http\Controllers\AuthController;
 |
 */
 
-Route::post('login', [AuthController::class, 'login']);
+Route::post('/login', [AuthController::class, 'login']);
+Route::post('/refresh', [AuthController::class, 'refreshTokens']);
 Route::post('/form', [form::class, 'store']);
 Route::get('/oficinas', [form::class, 'oficinas'])->middleware('auth:api');
 Route::get('/list', [form::class, 'list'])->middleware('auth:api');
