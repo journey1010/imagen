@@ -36,6 +36,10 @@ class form extends Controller
     {
         try{    
             $items = Img::get();
+            $items->map(function($item){
+                $item->imagen = str_replace('public', '', $item->imagen);
+                return $item;
+            });            
             return response()->json(['items' => $items ]);
         }catch(Exception $e){
             return response()->json(['message' => 'Problemas temporales'], 500);
