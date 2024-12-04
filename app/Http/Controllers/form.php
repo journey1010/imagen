@@ -25,6 +25,7 @@ class form extends Controller
             $form->codigoInversion = $request->codigoInversion;
             $form->tipoInversion = $request->tipoInversion;
             $form->estudiosPreliminares = $request->estudiosPreliminares;
+            $form->tipoBeneficiario = $request->tipoBeneficiario;
             $form->save();
             return response()->json(['message' => 'Guardado']);
         }catch(Exception $e){

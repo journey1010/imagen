@@ -20,7 +20,8 @@ class Image extends Template
             'beneficiarios' => 'required|string',
             'codigoInversion' => 'required|string',
             'tipoInversion' => 'nullable|string',
-            'estudiosPreliminares' => 'nullable|string'
+            'estudiosPreliminares' => 'nullable|string',
+            'tipoBeneficiario' => 'required|string'
         ];
     }
 }

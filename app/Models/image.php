@@ -12,12 +12,18 @@ class image extends Model
     protected $table = 'table_image';
 
     protected $fillable = [
-        'nombre_gerencia',
-        'sigla',
-        'monto_inversion',
+        'nombreGerencia',
+        'gerenciaReferencia',
+        'colorGerencia',
+        'logoGerencia',
+        'nombreObraPrograma',
+        'imagen',
+        'montoInversion',
         'descripcion',
         'beneficiarios',
-        'codigo_unico',
-        'files'
+        'codigoInversion',
+        'tipoInversion',
+        'estudiosPreliminares',
+        'tipoBeneficiario'
     ];
 }
