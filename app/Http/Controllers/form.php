@@ -37,7 +37,7 @@ class form extends Controller
         try{    
             $items = Img::get();
             $items->map(function($item){
-                $item->imagen = str_replace('public', '', $item->imagen);
+                $item->imagen = str_replace('public/', '', $item->imagen);
                 return $item;
             });            
             return response()->json(['items' => $items ]);
