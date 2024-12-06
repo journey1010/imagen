@@ -18,7 +18,7 @@ class Image extends Template
             'montoInversion' => 'required|string|max:1000',
             'descripcion' => 'required|string|max:2000',
             'beneficiarios' => 'required|string',
-            'codigoInversion' => 'required|string',
+            'codigoInversion' => 'nullable|string',
             'tipoInversion' => 'nullable|string',
             'estudiosPreliminares' => 'nullable|string',
             'tipoBeneficiario' => 'required|string'
