@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\Image;
+use App\Http\Requests\Update;
 use App\Models\image as Img;
 use App\Models\Offices;
 use Exception;
@@ -57,13 +58,59 @@ class form extends Controller
         }
     }
 
-    public function storeFiles()
+    public function update(Update $request)
     {
         try{
+            $form = Img::find($request->id);
+
+            if ($form) {
+                if (!is_null($request->nombreGerencia)) {
+                    $form->nombreGerencia = $request->nombreGerencia;
+                }
+                if (!is_null($request->gerenciaReferencia)) {
+                    $form->gerenciaReferencia = $request->gerenciaReferencia;
+                }
+                if (!is_null($request->colorGerencia)) {
+                    $form->colorGerencia = $request->colorGerencia;
+                }
+                if (!is_null($request->logoGerencia)) {
+                    $form->logoGerencia = $request->logoGerencia;
+                }
+                if (!is_null($request->nombreObraPrograma)) {
+                    $form->nombreObraPrograma = $request->nombreObraPrograma;
+                }
+                if ($request->hasFile('imagen')) {
+                    $form->imagen = $request->file('imagen')->store('public/fotos');
+                }
+                if (!is_null($request->montoInversion)) {
+                    $form->montoInversion = $request->montoInversion;
+                }
+                if (!is_null($request->descripcion)) {
+                    $form->descripcion = $request->descripcion;
+                }
+                if (!is_null($request->beneficiarios)) {
+                    $form->beneficiarios = $request->beneficiarios;
+                }
+                if (!is_null($request->codigoInversion)) {
+                    $form->codigoInversion = $request->codigoInversion;
+                }
+                if (!is_null($request->tipoInversion)) {
+                    $form->tipoInversion = $request->tipoInversion;
+                }
+                if (!is_null($request->estudiosPreliminares)) {
+                    $form->estudiosPreliminares = $request->estudiosPreliminares;
+                }
+                if (!is_null($request->tipoBeneficiario)) {
+                    $form->tipoBeneficiario = $request->tipoBeneficiario;
+                }
+                $form->save();
             
-            return response()->json([]);
+                return response()->json(['message' => 'Actualizado'], 200);
+            }
+            
+            return response()->json(['message' => 'Registro no encontrado'], 404);            
         }catch(Exception $e){
-            return response()->json(['message' => 'ocurrio un error temporal'], 500);
+            return response()->json (['messaga' => 'Problemas temporales'], 500);
         }
     }
 }
